@@ -1,3 +1,3 @@
-streamlit==1.51.0  
-metatrader5==5.0.5388  
-pandas==2.3.3   
+streamlit>=1.0.0
+metatrader5==5.0.5388
+pandas>=2.0.0
