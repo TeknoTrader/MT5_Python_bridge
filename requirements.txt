@@ -1,3 +1,3 @@
-streamlit
-metatrader5
-pandas
+streamlit==1.28.2
+pandas>=2.0.0
+MetaTrader5==5.0.5388
