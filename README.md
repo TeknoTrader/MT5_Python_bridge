@@ -159,7 +159,7 @@ Ngrok will provide a public URL like: `https://abc123.ngrok-free.app`
 
 For 24/7 availability, deploy on a Windows VPS:
 
-**Recommended Providers:**
+**Examples of valid Providers** (in my opinion):
 
 | Provider | Price | RAM | Notes |
 |----------|-------|-----|-------|
