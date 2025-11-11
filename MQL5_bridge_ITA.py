@@ -5,7 +5,7 @@ import pandas as pd
 import time
 
 # Configurazione pagina
-st.set_page_config(page_title="MT4 Trading App - Filtered", layout="wide")
+st.set_page_config(page_title="mt5 Trading App - Filtered", layout="wide")
 
 # Inizializza session state all'inizio
 if 'connected' not in st.session_state:
@@ -15,12 +15,12 @@ if 'account_info' not in st.session_state:
 if 'filter_comment' not in st.session_state:
     st.session_state['filter_comment'] = "Streamlit Trade"
 
-st.title("📈 MT4 Trading Application - Con Filtro Commento")
+st.title("📈 MT5 Trading Application - Con Filtro Commento")
 st.markdown("---")
 
 # Sidebar per configurazione account
 with st.sidebar:
-    st.header("⚙️ Configurazione Account MT4")
+    st.header("⚙️ Configurazione Account mt5")
 
     account_number = st.number_input("Numero Conto", min_value=0, value=0, step=1)
     password = st.text_input("Password", type="password")
@@ -28,7 +28,7 @@ with st.sidebar:
 
     st.markdown("---")
 
-    if st.button("🔌 Connetti a MT4", use_container_width=True):
+    if st.button("🔌 Connetti a MT5", use_container_width=True):
         if not mt5.initialize():
             st.error(f"❌ Inizializzazione MT5 fallita: {mt5.last_error()}")
             st.session_state['connected'] = False
@@ -51,7 +51,7 @@ with st.sidebar:
         mt5.shutdown()
         st.session_state['connected'] = False
         st.session_state['account_info'] = None
-        st.info("Disconnesso da MT4")
+        st.info("Disconnesso da mt5")
 
     # Mostra stato connessione
     st.markdown("---")
@@ -95,7 +95,7 @@ with col1:
     with col_buy:
         if st.button("🟢 BUY", use_container_width=True, type="primary"):
             if not st.session_state.get('connected', False):
-                st.error("❌ Non sei connesso a MT4! Connettiti dalla sidebar.")
+                st.error("❌ Non sei connesso a mt5! Connettiti dalla sidebar.")
             else:
                 with st.spinner("Invio ordine BUY..."):
                     try:
@@ -150,7 +150,7 @@ with col1:
     with col_sell:
         if st.button("🔴 SELL", use_container_width=True, type="secondary"):
             if not st.session_state.get('connected', False):
-                st.error("❌ Non sei connesso a MT4! Connettiti dalla sidebar.")
+                st.error("❌ Non sei connesso a mt5! Connettiti dalla sidebar.")
             else:
                 with st.spinner("Invio ordine SELL..."):
                     try:
@@ -409,7 +409,7 @@ with col2:
         except Exception as e:
             st.error(f"Errore nel recupero delle posizioni: {str(e)}")
     else:
-        st.warning("⚠️ Connettiti a MT4 per vedere le posizioni")
+        st.warning("⚠️ Connettiti a mt5 per vedere le posizioni")
 
 # Footer
 st.markdown("---")
